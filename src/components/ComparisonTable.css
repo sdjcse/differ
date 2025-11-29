@@ -1,0 +1,188 @@
+.comparison-table-container {
+  padding: 2rem;
+  max-width: 100%;
+  background: var(--bg-primary);
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.comparison-table-container h1 {
+  color: var(--accent-color);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Fira Code', 'Fira Mono', monospace;
+}
+
+.comparison-table thead {
+  background: var(--bg-tertiary);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.comparison-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comparison-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+.comparison-table td {
+  padding: 1rem;
+  vertical-align: top;
+}
+
+.id-cell {
+  width: 150px;
+  min-width: 150px;
+}
+
+.id-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.id-number {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.name {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.sql-cell {
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.sql-preview {
+  background: var(--bg-primary);
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  overflow-x: auto;
+  margin: 0;
+  border: 1px solid var(--border-color);
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Fira Code', 'Fira Mono', monospace;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.sql-preview::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.sql-preview::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.sql-preview::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.sql-preview::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.status-cell {
+  width: 150px;
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-badge.match {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid #4ade80;
+}
+
+.btn-view-diff {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.btn-view-diff:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+.btn-view-diff:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1200px) {
+  .sql-cell {
+    max-width: 300px;
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparison-table-container {
+    padding: 1rem;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem;
+  }
+
+  .sql-preview {
+    font-size: 0.75rem;
+    max-height: 150px;
+  }
+}

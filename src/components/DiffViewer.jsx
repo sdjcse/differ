@@ -6,9 +6,8 @@ import 'prismjs/components/prism-sql';
 import 'prismjs/themes/prism.css';
 import './DiffViewer.css';
 
-function DiffViewer() {
-  const [originalText, setOriginalText] = useState(
-    `SELECT
+function DiffViewer({ initialOracle, initialPostgres, comparisonName }) {
+  const defaultOracle = `SELECT
   e.employee_id,
   e.first_name,
   e.last_name,
@@ -18,11 +17,9 @@ FROM employees e
 INNER JOIN departments d
   ON e.department_id = d.department_id
 WHERE ROWNUM <= 10
-ORDER BY e.employee_id`
-  );
+ORDER BY e.employee_id`;
 
-  const [modifiedText, setModifiedText] = useState(
-    `SELECT
+  const defaultPostgres = `SELECT
   e.employee_id,
   e.first_name,
   e.last_name,
@@ -32,8 +29,10 @@ FROM employees e
 INNER JOIN departments d
   ON e.department_id = d.department_id
 ORDER BY e.employee_id
-LIMIT 10`
-  );
+LIMIT 10`;
+
+  const [originalText, setOriginalText] = useState(initialOracle || defaultOracle);
+  const [modifiedText, setModifiedText] = useState(initialPostgres || defaultPostgres);
 
   const [diff, setDiff] = useState([]);
 
@@ -69,7 +68,7 @@ LIMIT 10`
 
   return (
     <div className="diff-container">
-      <h1>SQL Diff Viewer</h1>
+      <h1>{comparisonName ? `${comparisonName} - SQL Diff Viewer` : 'SQL Diff Viewer'}</h1>
 
       <div className="editor-container">
         <div className="editor-pane">
@@ -85,7 +84,6 @@ LIMIT 10`
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace',
               fontSize: 14,
-              backgroundColor: '#f5f5f5',
               minHeight: '300px',
               borderRadius: '4px',
             }}
@@ -113,7 +111,6 @@ LIMIT 10`
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace',
               fontSize: 14,
-              backgroundColor: '#f5f5f5',
               minHeight: '300px',
               borderRadius: '4px',
             }}
