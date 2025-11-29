@@ -18,7 +18,7 @@ A React-based SQL diff viewer application designed for comparing Oracle and Post
 ## Repository Structure
 
 ```
-differ-app/
+differ/
 ├── src/
 │   ├── components/
 │   │   ├── DiffViewer.jsx      # Main diff viewer component
@@ -29,15 +29,14 @@ differ-app/
 │   └── main.jsx                # Application entry point
 ├── public/                     # Static assets
 ├── package.json               # Dependencies and scripts
-└── vite.config.js             # Vite configuration
+├── vite.config.js             # Vite configuration
+├── CLAUDE.md                  # Claude Code guidance
+└── README.md                  # Project documentation
 ```
 
 ## Development Commands
 
 ```bash
-# Navigate to the project directory
-cd differ-app
-
 # Install dependencies
 npm install
 
